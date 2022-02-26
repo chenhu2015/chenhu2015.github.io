@@ -265,7 +265,7 @@ section {
 }
 
 .section-title {
-  padding-bottom: 16px;
+  /* padding-bottom: 30px; */
 }
 .section-title h2 {
   font-size: 32px;
