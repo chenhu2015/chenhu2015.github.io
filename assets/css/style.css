@@ -257,6 +257,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 section {
   padding-top: 60px;
+  padding-right: 30px;
+  padding-left: 30px;
   overflow: hidden;
 }
 
