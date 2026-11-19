@@ -87,7 +87,7 @@
 
 <section>
   <h2>About</h2>
-  <p>I work on LLM post-training at Amazon AWS. Most of my time goes into reinforcement learning for coding agents: the task data, the sandboxed environments the agent works in, the rewards and verifiers, multi-node GPU training, and the held-out evaluations that tell us whether a change actually helped.</p>
+  <p>I work on LLM post-training at Amazon AWS. Most of my time goes into reinforcement learning for coding agents: the RL environments the agent works in, the rewards, large-scale asynchronous RL training on dense and MoE models, the serving stack behind long-horizon agent tasks, and the held-out evaluations that tell us whether a change actually helped.</p>
   <p>Before this, I built math and code SFT data checked with formal verification (Lean) and ran SFT training for Amazon Nova, and worked on prompt optimization and hallucination detection for Alexa.</p>
   <p>I have a Ph.D. in Civil Engineering, where I built statistical and physics-based models of material failure, and an M.S. in Computer Science, both from the University of Minnesota.</p>
 </section>
@@ -99,13 +99,16 @@
     <div class="job-head"><strong>Applied Scientist — Amazon</strong><span class="when">Nov 2024 – Present</span></div>
     <p class="team">AWS Agentic AI <span class="when">· May 2025 – Present</span></p>
     <ul>
-      <li>Own the agentic RL recipe for automated test generation in the AWS Kiro coding agent: task data, containerized code-execution environments, GRPO training on multi-node H100/H200 clusters, and held-out evaluation.</li>
-      <li>Design rewards and verifiers for a tool-using agent; run ablation studies on a 27B model.</li>
-      <li>Contributed to Amazon Nova: built math and code SFT data paired with formal verification (Lean) and ran the SFT training; the data shipped into a production training run.</li>
+      <li>Owned the agentic-RL recipe end to end for the AWS Kiro coding agent: an in-house, difficulty-measured corpus of SWE-bench-style RL environments (containerized sandboxes, deduplicated and decontaminated against public benchmarks, used for curriculum training) and test-execution rewards built to resist reward hacking.</li>
+      <li>Trained dense and MoE models with asynchronous GRPO, from small-scale ablations that set the recipe to large production runs on H100/H200 clusters; extended miles (on Ray) to run asynchronous agentic rollouts on KiroRolloutService.</li>
+      <li>Improved the base model by +5.1 points on a SWE-bench-style benchmark and +20.7 on a held-out eval, averaged over multiple runs.</li>
+      <li>Optimized online serving of large MoE models for long-horizon agent tasks with PD disaggregation, speculative decoding, expert parallelism, and KV cache management: +30% throughput.</li>
+      <li>Built math and code SFT data paired with formal verification (Lean), tuned the data mix, and ran the SFT training on Amazon Nova; the data shipped into a production training run.</li>
+      <li>Building an agent that proposes repository properties, formalizes them in Lean, and proves or disproves them in a long-horizon agent loop.</li>
     </ul>
     <p class="team">Alexa <span class="when">· Nov 2024 – May 2025</span></p>
     <ul>
-      <li>Optimized in-context example selection for Alexa LLM prompts.</li>
+      <li>Optimized in-context example selection for Alexa LLM prompts: +4.4% accuracy.</li>
       <li>Built an entropy-based uncertainty signal to flag hallucinations for routing and fallback.</li>
     </ul>
   </div>
@@ -137,7 +140,7 @@
 <section>
   <h2>Tools</h2>
   <div class="chips">
-    <span>PyTorch</span><span>slime</span><span>Megatron</span><span>Ray</span><span>vLLM</span><span>SGLang</span><span>Kubernetes</span><span>Python</span><span>C++</span><span>Lean</span>
+    <span>PyTorch</span><span>FSDP</span><span>DeepSpeed</span><span>Megatron</span><span>miles</span><span>verl</span><span>vLLM</span><span>SGLang</span><span>NCCL</span><span>Ray</span><span>Kubernetes</span><span>Slurm</span><span>Python</span><span>C++</span><span>CUDA</span><span>Triton</span><span>Lean</span>
   </div>
 </section>
 
